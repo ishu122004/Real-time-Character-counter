@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character counter</title>
+    <link rel="stylesheet" href="./src/output.css">
+</head>
+<body class="font-serif grid justify-center items-center min-h-screen">
+    <div id="divcount" class="grid justify-center items-center bg-stone-200 shadow-2xl shadow-stone-400 rounded-xl w-3xl p-3">
+    <h1 class="text-3xl font-extrabold text-center p-4">Character counter</h1>
+    <textarea id="type" class="border bg-orange-100 w-2xl h-32 grid justify-center bg-gray-200 p-2" placeholder="Type anything here.."></textarea>
+    <p id="counter" class="p-1 font-bold">Characters typed:</p> 
+    <p id="remaining" class="p-1 font-bold">Characters remaining:</p></div>
+    <div id="errormsg" class="hidden bg-orange-100 h-56 w-2xl grid justify-center items-center rounded-xl shadow-md shadow-amber-600"><p class="text-amber-950 text-2xl font-semibold text-center p-3">You have reached the maximum limit of 200 characters</p>
+    </div>
+    <script>
+        const divcnt=document.getElementById("divcount")
+        const textchar=document.getElementById("type")
+        const count=document.getElementById("counter")
+        const remain=document.getElementById("remaining")
+        const errormsg=document.getElementById("errormsg")
+        
+        textchar.addEventListener("input",function(){
+            const typedvalue=textchar.value.length
+            const remaining=200-typedvalue
+            if(remaining==1){
+                count.textContent="Typed characters:" + typedvalue +"/"+"200"         
+                remain.textContent="Remaining character:" + remaining  
+            } 
+            else if(typedvalue < 201){
+                count.textContent="Typed characters:" + typedvalue +"/"+"200"         
+                remain.textContent="Remaining characters:" + remaining  
+            }  
+           
+            else{
+                errormsg.classList.remove("hidden")
+                divcnt.style.display="none"
+            }  
+        })
+    </script>
+</body>
+</html>
