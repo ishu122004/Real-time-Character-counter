@@ -245,6 +245,15 @@
   .w-3xl {
     width: var(--container-3xl);
   }
+  .w-\[3\] {
+    width: 3;
+  }
+  .w-\[300px\] {
+    width: 300px;
+  }
+  .w-\[360px\] {
+    width: 360px;
+  }
   .w-xl {
     width: var(--container-xl);
   }
